@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MafiaGame", "MafiaGame\MafiaGame.csproj", "{DA791315-7607-4E77-8C25-34443633B4EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MafiaGame", "MafiaGame\MafiaGame.csproj", "{DA791315-7607-4E77-8C25-34443633B4EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MafiaGameTest", "MafiaGameTest\MafiaGameTest.csproj", "{03987865-41A6-4EA3-8344-183C8D295A50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{DA791315-7607-4E77-8C25-34443633B4EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA791315-7607-4E77-8C25-34443633B4EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA791315-7607-4E77-8C25-34443633B4EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03987865-41A6-4EA3-8344-183C8D295A50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03987865-41A6-4EA3-8344-183C8D295A50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03987865-41A6-4EA3-8344-183C8D295A50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03987865-41A6-4EA3-8344-183C8D295A50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

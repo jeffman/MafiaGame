@@ -6,6 +6,8 @@ namespace MafiaGame.Engine
 {
     public sealed class Player
     {
+        public static Player Host { get; } = new Player("Host");
+
         public string Name { get; }
 
         public Player(string name)

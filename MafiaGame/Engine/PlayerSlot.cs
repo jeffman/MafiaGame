@@ -1,12 +1,15 @@
 ﻿using MafiaGame.Utility;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace MafiaGame.Engine
 {
     public sealed class PlayerSlot
     {
+        public static PlayerSlot Host { get; } = new PlayerSlot(Player.Host, Role.Host);
+
         public Player Owner { get; }
         public Role Role { get; }
         public PlayerStatus Status { get; }

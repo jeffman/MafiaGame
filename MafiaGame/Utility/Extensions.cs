@@ -21,5 +21,10 @@ namespace MafiaGame.Utility
                 return value;
             throw new ArgumentOutOfRangeException();
         }
+
+        public static IEnumerable<T> Except<T>(this IEnumerable<T> source, T element)
+        {
+            return source.Except(new[] { element });
+        }
     }
 }

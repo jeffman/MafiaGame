@@ -21,7 +21,7 @@ namespace MafiaGameTest.Engine
 
         [Theory]
         [MemberData(nameof(DistinctPlayersData))]
-        public void WithPlayers_PlayersAreAlwaysUnique(params PlayerSlot[][] playerSequences)
+        public void PlayersAreAlwaysUnique(params PlayerSlot[][] playerSequences)
         {
             var state = GameState.Blank;
             foreach (var sequence in playerSequences)

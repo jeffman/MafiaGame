@@ -16,5 +16,10 @@ namespace MafiaGame.Engine
             Source = source;
             Targets = targets.ToReadOnlyCollection();
         }
+
+        protected GameAction(PlayerSlot source, PlayerSlot target) : this(source, new[] { target }) { }
+
+        public abstract bool IsValid(GameState state);
+        public abstract ActionResult Execute(GameState state, ActionPolicy policy, out GameState newState);
     }
 }

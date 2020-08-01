@@ -10,6 +10,7 @@ namespace MafiaGame.Engine
         public static Role Host { get; } = new Role(Alignment.Independent, "Host");
         public static Role Town { get; } = new Role(Alignment.Town, "Town");
         public static Role Mafia { get; } = new Role(Alignment.Mafia, "Mafia");
+        public static Role Godfather { get; } = new Role(Alignment.Mafia, "Godfather");
         public static Role Miller { get; } = new Role(Alignment.Town, "Miller");
 
         public Alignment Alignment { get; }
@@ -17,7 +18,7 @@ namespace MafiaGame.Engine
 
         private Role(Alignment alignment, string name)
         {
-            Alignment = Alignment.AsDefinedOrThrow();
+            Alignment = alignment.AsDefinedOrThrow();
             Name = name;
         }
 

@@ -10,7 +10,7 @@ namespace MafiaGame.Utility
     {
         public static IReadOnlyCollection<T> ToReadOnlyCollection<T>(this IEnumerable<T> source)
         {
-            if (source is IReadOnlyCollection<T> readOnly)
+            if (source is ReadOnlyCollection<T> readOnly)
                 return readOnly;
             return new ReadOnlyCollection<T>(source.ToList());
         }

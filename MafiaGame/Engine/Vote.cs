@@ -6,10 +6,10 @@ namespace MafiaGame.Engine
 {
     public class Vote
     {
-        public PlayerSlot Voter { get; }
-        public PlayerSlot Target { get; }
+        public Player Voter { get; }
+        public Player Target { get; }
 
-        public Vote(PlayerSlot voter, PlayerSlot target)
+        public Vote(Player voter, Player target)
         {
             Voter = voter;
             Target = target;

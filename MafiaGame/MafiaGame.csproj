@@ -6,4 +6,10 @@
     <WarningsAsErrors>nullable</WarningsAsErrors>
   </PropertyGroup>
 
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>MafiaGameTest</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
 </Project>

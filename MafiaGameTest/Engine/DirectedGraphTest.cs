@@ -196,21 +196,21 @@ namespace MafiaGameTest.Engine
                 .OrderBy(c => c.Min())
                 .ToArray();
 
-            Assert.Equal(7, components.Length);
-            Assert.True(SetEqual(components[0], new[] { "A", "B", "C", "D", "E" }));
-            Assert.True(SetEqual(components[1], new[] { "F" }));
-            Assert.True(SetEqual(components[2], new[] { "G", "H", "I" }));
-            Assert.True(SetEqual(components[3], new[] { "J" }));
-            Assert.True(SetEqual(components[4], new[] { "K", "L" }));
-            Assert.True(SetEqual(components[5], new[] { "M", "N", "O", "P" }));
-            Assert.True(SetEqual(components[6], new[] { "X" }));
-            Assert.True(SetEqual(superGraph.GetOutgoingEdges(components[0]), new[] { components[1], components[5] }));
-            Assert.True(SetEqual(superGraph.GetOutgoingEdges(components[1]), new[] { components[2], components[4] }));
-            Assert.True(SetEqual(superGraph.GetOutgoingEdges(components[2]), new[] { components[3] }));
-            Assert.True(SetEqual(superGraph.GetOutgoingEdges(components[3]), new IEnumerable<string>[] { }));
-            Assert.True(SetEqual(superGraph.GetOutgoingEdges(components[4]), new[] { components[3] }));
-            Assert.True(SetEqual(superGraph.GetOutgoingEdges(components[5]), new[] { components[4] }));
-            Assert.True(SetEqual(superGraph.GetOutgoingEdges(components[6]), new IEnumerable<string>[] { }));
+            SetAssert.Count(7, components);
+            SetAssert.Equivalent(components[0], "A", "B", "C", "D", "E");
+            SetAssert.Equivalent(components[1], "F");
+            SetAssert.Equivalent(components[2], "G", "H", "I");
+            SetAssert.Equivalent(components[3], "J" );
+            SetAssert.Equivalent(components[4], "K", "L" );
+            SetAssert.Equivalent(components[5], "M", "N", "O", "P" );
+            SetAssert.Equivalent(components[6], "X" );
+            SetAssert.Equivalent(superGraph.GetOutgoingEdges(components[0]), components[1], components[5]);
+            SetAssert.Equivalent(superGraph.GetOutgoingEdges(components[1]), components[2], components[4]);
+            SetAssert.Empty(superGraph.GetOutgoingEdges(components[3]));
+            SetAssert.Equivalent(superGraph.GetOutgoingEdges(components[2]), components[3]);
+            SetAssert.Equivalent(superGraph.GetOutgoingEdges(components[4]), components[3]);
+            SetAssert.Equivalent(superGraph.GetOutgoingEdges(components[5]), components[4]);
+            SetAssert.Empty(superGraph.GetOutgoingEdges(components[6]));
         }
 
         [Fact]

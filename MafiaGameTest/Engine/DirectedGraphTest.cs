@@ -217,7 +217,7 @@ namespace MafiaGameTest.Engine
         public void GetStronglyConnectedComponentsPerformance()
         {
             var bigGraph = new DirectedGraph<object>();
-            foreach (var _ in Enumerable.Range(0, 1000))
+            foreach (var _ in Enumerable.Range(0, 100))
             {
                 bigGraph.AddValue(new object());
             }

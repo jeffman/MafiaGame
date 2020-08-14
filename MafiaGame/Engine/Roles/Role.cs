@@ -9,7 +9,6 @@ namespace MafiaGame.Engine.Roles
         public abstract Ability Ability { get; }
         public string Name { get; }
         public virtual int AllowedVotes => 1;
-        public virtual bool NightActionAffectsOtherActions => false;
 
         protected Role(string name)
         {
@@ -31,11 +30,15 @@ namespace MafiaGame.Engine.Roles
         /// 
         /// May be called more than once per night phase, as some dependencies themselves may depend on other dependencies.
         /// </summary>
-        public virtual void OnResolveNightActionDependencies(GameState state, NightAction action, NightResolver resolver)
+        public virtual void OnRegisterNightActionDependencies(GameState state, NightAction action, DependencyResolver resolver)
         {
         }
 
         public virtual void OnResolveNightPassiveAction(GameState state, Player owner, NightResolver resolver)
+        {
+        }
+
+        public virtual void OnResolveNightAction(GameState state, NightAction action, NightResolver resolver)
         {
         }
 

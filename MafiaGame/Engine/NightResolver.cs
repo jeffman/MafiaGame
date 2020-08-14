@@ -9,21 +9,35 @@ namespace MafiaGame.Engine
     public class NightResolver
     {
         private readonly HashSet<Player> protectedPlayers = new HashSet<Player>();
-        private readonly HashSet<NightAction> actions = new HashSet<NightAction>();
-
-        public NightResolver(IEnumerable<NightAction> actions)
-        {
-            this.actions = actions.ToHashSet();
-        }
+        private readonly HashSet<Player> blockedPlayers = new HashSet<Player>();
+        private readonly Dictionary<Player, Player> targetRedirects = new Dictionary<Player, Player>();
 
         public void Protect(Player player)
         {
             protectedPlayers.Add(player);
         }
 
-        public Resolution Resolve(GameState state)
+        public bool IsProtected(Player player)
+            => protectedPlayers.Contains(player);
+
+        public void Block(Player player)
         {
-            throw new NotImplementedException();
+            blockedPlayers.Add(player);
+        }
+
+        public bool IsBlocked(Player player)
+            => blockedPlayers.Contains(player);
+
+        public void RedirectTarget(Player intendedTarget, Player willActuallyTarget)
+        {
+            targetRedirects[intendedTarget] = willActuallyTarget;
+        }
+
+        public Player GetActualTarget(Player intendedTarget)
+        {
+            if (targetRedirects.TryGetValue(intendedTarget, out var actualTarget))
+                return actualTarget;
+            return intendedTarget;
         }
     }
 }

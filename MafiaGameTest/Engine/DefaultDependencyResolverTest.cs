@@ -9,7 +9,7 @@ namespace MafiaGameTest.Engine
 {
     public class DefaultDependencyResolverTest : PlayerBase
     {
-        private DefaultDependencyResolver resolver = new DefaultDependencyResolver();
+        private readonly DefaultDependencyResolver resolver = new DefaultDependencyResolver();
 
         [Fact]
         public void ResolveNoCycles()

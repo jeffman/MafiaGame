@@ -9,15 +9,18 @@ namespace MafiaGameTest.Engine
 {
     public class PlayerBase
     {
-        protected readonly Player alice = new Player(Utility.Players.Alice, new TownRole());
-        protected readonly Player bob = new Player(Utility.Players.Bob, new TownRole());
-        protected readonly Player chris = new Player(Utility.Players.Chris, new TownRole());
-        protected readonly Player denise = new Player(Utility.Players.Denise, new TownRole());
-        protected readonly Player gabby = new Player(Utility.Players.Gabby, new GodfatherRole());
-        protected readonly Player james = new Player(Utility.Players.James, new MafiaRole());
-        protected readonly Player kelly = new Player(Utility.Players.Kelly, new MafiaRole());
-        protected readonly Player larry = new Player(Utility.Players.Larry, new MafiaRole());
-        protected readonly Player millhouse = new Player(Utility.Players.Millhouse, new MillerRole());
+        protected readonly Player alice = new Player(Utility.People.Alice, new TownRole());
+        protected readonly Player bob = new Player(Utility.People.Bob, new TownRole());
+        protected readonly Player chris = new Player(Utility.People.Chris, new TownRole());
+        protected readonly Player denise = new Player(Utility.People.Denise, new TownRole());
+        protected readonly Player gabby = new Player(Utility.People.Gabby, new GodfatherRole());
+        protected readonly Player james = new Player(Utility.People.James, new MafiaRole());
+        protected readonly Player kelly = new Player(Utility.People.Kelly, new MafiaRole());
+        protected readonly Player larry = new Player(Utility.People.Larry, new MafiaRole());
+        protected readonly Player millhouse = new Player(Utility.People.Millhouse, new MillerRole());
+        protected readonly Player bud = new Player(Utility.People.Bud, new BusDriverRole(Alignment.Town));
+        protected readonly Player buzz = new Player(Utility.People.Buzz, new BusDriverRole(Alignment.Town));
+        protected readonly Player brock = new Player(Utility.People.Brock, new BlockerRole(Alignment.Mafia));
         protected readonly GameState state;
 
         public IEnumerable<object[]> Mafia => state.Players.Where(p => p.Role.Alignment == Alignment.Mafia).AsMemberData();
@@ -36,6 +39,14 @@ namespace MafiaGameTest.Engine
             state.Players.Add(kelly);
             state.Players.Add(larry);
             state.Players.Add(millhouse);
+            state.Players.Add(bud);
+            state.Players.Add(buzz);
+            state.Players.Add(brock);
+        }
+
+        protected Player GetPlayer(string name)
+        {
+            return state.Players.First(p => p.Owner.Name.ToLowerInvariant() == name.ToLowerInvariant());
         }
     }
 }

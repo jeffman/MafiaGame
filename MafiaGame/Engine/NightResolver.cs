@@ -1,5 +1,4 @@
-﻿using MafiaGame.Engine.Actions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +10,7 @@ namespace MafiaGame.Engine
         private readonly HashSet<Player> protectedPlayers = new HashSet<Player>();
         private readonly HashSet<Player> blockedPlayers = new HashSet<Player>();
         private readonly Dictionary<Player, Player> targetRedirects = new Dictionary<Player, Player>();
+        private readonly HashSet<NightResult> results = new HashSet<NightResult>();
 
         public void Protect(Player player)
         {
@@ -38,6 +38,11 @@ namespace MafiaGame.Engine
             if (targetRedirects.TryGetValue(intendedTarget, out var actualTarget))
                 return actualTarget;
             return intendedTarget;
+        }
+
+        public void AddResult(NightResult result)
+        {
+            results.Add(result);
         }
     }
 }
